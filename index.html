@@ -9,23 +9,16 @@
 
 		<link rel="shortcut icon" type="image/x-icon" href="images/food_factory_logo.ico" />
 		<title> Food Factory </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
+		<script>
+			$( function() {
+			  $( "#header" ).load( "header.html" ); 
+			  // $( "#footer" ).load( "footer.html" ); 
+			} );
+		</script>
 	<body>
-		<div class="main-div">
-			<header class="header">
-				<img class="logo col-xs-12 col-sm-12 col-md-1 col-lg-1" src="images/food_factory_logo.png">
-				<p class="main_header col-xs-12 col-sm-12 col-md-4 col-lg-4">Food Factory</p>
-				<nav class="main_nav col-xs-12 col-sm-12 col-md-6 col-lg-6">
-					<a href="#" class="main-menu-item">Home</a>
-					<a href="#" class="main-menu-item">About</a>
-					<a href="#" class="main-menu-item">Contacts</a>
-
-					<div class="log-reg">
-						<a href="#">Login</a>
-						<a href="#">Register</a>
-					</div>
-				</nav>
-			</header>
-		</div>
+		<div id="header"></div>
+		asd
 	</body>
 </html>
