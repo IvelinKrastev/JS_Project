@@ -126,7 +126,7 @@ and (min-width : 1024px) {
     bottom: 0;
     width: 100%;
 	height: 140px;
-	background-color: #515101;
+	background-color: #acad9c;
 }
 
 .contactsContainer {
@@ -143,7 +143,7 @@ and (min-width : 1024px) {
 	font-size: 14px;
 	font-weight: bolder;
 	text-align: center;
-	color: #b3b300;
+	color: #515101;
 }
 
 .followContainer {
@@ -163,6 +163,7 @@ and (min-width : 1024px) {
 
 .follow_us {
 	text-align: center;
+	color: #515101;
 }
 
 .social_media {
@@ -172,7 +173,7 @@ and (min-width : 1024px) {
 
 .rights_reserved {
 	position: absolute;
-	color: #b3b300;
+	color: #515101;
 	bottom: 0;
 	height: 20px;
 	font-family: Tahoma;
