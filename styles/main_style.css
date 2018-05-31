@@ -116,3 +116,93 @@ and (min-width : 1024px) {
 		padding-right: 20px;
 	}
 }
+
+
+
+.footer {
+	position: fixed;
+	margin: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+	height: 140px;
+	background-color: #515101;
+}
+
+.contactsContainer {
+	position: absolute;
+	width: 250px;
+	bottom: 40px;
+	left: 3%;
+}
+
+.names, .email, .phone {
+	margin: 5px;
+	width: 250;
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight: bolder;
+	text-align: center;
+	color: #b3b300;
+}
+
+.followContainer {
+	position: absolute;
+	bottom: 40px;
+	right: 20px;
+	width: 200px;
+}
+
+.followContainer a {
+	padding-left: 17px;
+}
+
+.followContainer:nth-child(2) {
+	padding-left: 30px;
+}
+
+.follow_us {
+	text-align: center;
+}
+
+.social_media {
+	width: 30px;
+	height: 30px;
+}
+
+.rights_reserved {
+	position: absolute;
+	color: #b3b300;
+	bottom: 0;
+	height: 20px;
+	font-family: Tahoma;
+	font-size: 15px;
+	font-weight: bold;
+	left: 35%;
+}
+
+@media only screen 
+and (max-width : 660px) {
+	.footer {
+		height: 300px;
+	}
+
+	.contactsContainer {
+		left: 0;
+		margin: 0 auto;
+		margin-top: 70px;
+		position: relative;
+	}
+
+	.followContainer {
+		margin: 0 auto;
+		margin-top: 70px;
+		position: relative;
+	}
+
+	.rights_reserved {
+		left: 0;
+		margin: 0 auto;
+		font-size: 13px;
+	}
+}
