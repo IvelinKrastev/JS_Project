@@ -1,7 +1,13 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
 body {
-	margin: 0;
-	width: 100%;
-	height: 100%;
+  position: relative;
+  margin: 0;
+  padding-bottom: 140px;
+  min-height: 100%;
 }
 
 .main-div {
@@ -120,10 +126,11 @@ and (min-width : 1024px) {
 
 
 .footer {
-	position: fixed;
-	margin: 0;
-    left: 0;
-    bottom: 0;
+	position: absolute;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+	margin: 0 auto;
     width: 100%;
 	height: 140px;
 	background-color: #acad9c;
@@ -184,6 +191,10 @@ and (min-width : 1024px) {
 
 @media only screen 
 and (max-width : 660px) {
+	body {
+		padding-bottom: 300px;
+	}
+	
 	.footer {
 		height: 300px;
 	}
