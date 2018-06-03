@@ -10,6 +10,8 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/food_factory_logo.ico" />
 		<title> Login </title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	 	<script src="https://da189i1jfloii.cloudfront.net/js/kinvey-html5-sdk-3.11.1.min.js"></script>
+	 	
 		<script type="text/javascript" src="scripts/login-register.js"></script>
 		<script type="text/javascript" src="scripts/loader.js"></script>
 
@@ -22,15 +24,27 @@
 	</head>
 
 	<body onload="loaderTimeout()">
-		
+
 		<div id="loader"></div>
-
+		
 		<div class="main-div" >
-
 			<div id="header"></div>
 
-			<div id="footer"></div>
+			<div class="formHolder col-xs-12" id="formHolder">
+				<p id="successfulLogin" class="loginFont">Login Sucessful!</p>
+				<p id="failedLogin" class="loginFont">Invalid usrname/password!</p>
+				<form class="loginForm col-xs-6 col-xs-offset-3" action="" method="POST">
+	  				<p class="loginText loginFont">Username:</p>
+	  				<input type="text" name="username" id="loginUsername" class="loginField loginFont" placeholder="Username..." autocomplete="off">
+	  				<br>
+	  				<p class="loginText loginFont">Password:</p>
+	  				<input type="password" name="lastname" id="loginPassword" class="loginField loginFont" placeholder="Password..." autocomplete="off">
+	  				<br>
+	  				<input type="submit" value="Log in" class="loginButton loginFont col-xs-6" id="loginBtn" onclick="return login()">
+				</form>
+			</div> 
 
+			<div id="footer"></div>
 		</div>
 	</body>
 
