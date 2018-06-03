@@ -10,6 +10,8 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/food_factory_logo.ico" />
 		<title> Register </title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	 	<script src="https://da189i1jfloii.cloudfront.net/js/kinvey-html5-sdk-3.11.1.min.js"></script>
+	 	
 		<script type="text/javascript" src="scripts/login-register.js"></script>
 		<script type="text/javascript" src="scripts/loader.js"></script>
 
@@ -26,11 +28,23 @@
 		<div id="loader"></div>
 
 		<div class="main-div" >
-
 			<div id="header"></div>
 
-			<div id="footer"></div>
+			<div class="formHolder col-xs-12" id="formHolder">
+				<p id="successfulRegister" class="registerFont">Register Sucessful!</p>
+				<p id="failedRegister" class="registerFont">Username already taken!</p>
+				<form class="registerForm col-xs-6 col-xs-offset-3" action="" method="POST">
+	  				<p class="registerText registerFont">Username:</p>
+	  				<input type="text" name="username" id="registerUsername" class="registerField registerFont" placeholder="Username..." autocomplete="off">
+	  				<br>
+	  				<p class="registerText registerFont">Password:</p>
+	  				<input type="password" name="lastname" id="registerPassword" class="registerField registerFont" placeholder="Password..." autocomplete="off">
+	  				<br>
+	  				<input type="submit" value="Register" class="registerButton registerFont col-xs-6" id="registerBtn" onclick="return register()">
+				</form>
+			</div> 
 
+			<div id="footer"></div>
 		</div>
 	</body>
 
