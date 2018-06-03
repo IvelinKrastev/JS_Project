@@ -10,15 +10,51 @@ body {
   min-height: 100%;
 }
 
+
+#headerLoad, #footerLoad {
+	display: none;
+}
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 150px;
+  height: 150px;
+  -webkit-animation: spinLoader 1s linear infinite;
+  animation: spinLoader 1s linear infinite;
+}
+
+@-webkit-keyframes spinLoader {
+  0% { -webkit-transform: rotate( 0deg ); }
+  100% { -webkit-transform: rotate( 360deg ); }
+}
+
+@keyframes spinLoader {
+  0% { transform: rotate( 0deg ); }
+  100% { transform: rotate( 360deg ); }
+}
+
+
 .main-div {
 	margin: 0;
-	background: #acad9c;
 }
 
 .header {
+	background: #c6c6c6;
+	position: relative;
 	height: auto;
 	padding-bottom: 10px;
+	-webkit-animation-name: animatebottom;
+  	-webkit-animation-duration: 1s;
+  	animation-name: animatebottom;
+  	animation-duration: 1s;
 }
+
 
 .logo {
 	padding: 0;
@@ -34,7 +70,7 @@ body {
 	font-size: 44px;
 	font-weight: bold;
 	font-style: italic;
-	color: #003a0a;
+	color: #003296;
 }
 
 .main_nav {
@@ -53,20 +89,20 @@ body {
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 20px;
-	color: #515101;
+	color: #003296;
 }
 
 .main_nav a:visited {
-	color: #515101;
+	color: #003296;
 }
 
 .main_nav a:hover {
-	color: #80843b;
+	color: #1e50b5;
 	text-decoration: underline;
 }
 
 .main_nav a:active {
-	color: #55590d;
+	color: #0e2c68;
 	text-decoration: underline;
 }
 
@@ -124,7 +160,6 @@ and (min-width : 1024px) {
 }
 
 
-
 .footer {
 	position: absolute;
   	right: 0;
@@ -133,7 +168,11 @@ and (min-width : 1024px) {
 	margin: 0 auto;
     width: 100%;
 	height: 140px;
-	background-color: #acad9c;
+	background: #c6c6c6;
+	-webkit-animation-name: animatebottom;
+  	-webkit-animation-duration: 1s;
+  	animation-name: animatebottom;
+  	animation-duration: 1s;
 }
 
 .contactsContainer {
@@ -150,7 +189,7 @@ and (min-width : 1024px) {
 	font-size: 14px;
 	font-weight: bolder;
 	text-align: center;
-	color: #515101;
+	color: #0e2c68;
 }
 
 .followContainer {
@@ -170,7 +209,7 @@ and (min-width : 1024px) {
 
 .follow_us {
 	text-align: center;
-	color: #515101;
+	color: #0e2c68;
 }
 
 .social_media {
@@ -180,7 +219,7 @@ and (min-width : 1024px) {
 
 .rights_reserved {
 	position: absolute;
-	color: #515101;
+	color: #0e2c68;
 	bottom: 0;
 	height: 20px;
 	font-family: Tahoma;
@@ -217,4 +256,14 @@ and (max-width : 660px) {
 		margin: 0 auto;
 		font-size: 13px;
 	}
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom: -150px; opacity: 0 } 
+  to { bottom: 0px; opacity: 1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom: -150px; opacity: 0 } 
+  to{ bottom: 0px; opacity: 1 }
 }
