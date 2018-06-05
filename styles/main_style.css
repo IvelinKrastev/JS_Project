@@ -132,6 +132,7 @@ body {
 
 @media only screen 
 and (max-width : 767px) {
+
 	.main-menu-item {
 		padding-right: 10px;
 	}
@@ -173,6 +174,34 @@ and (min-width : 1024px) {
 }
 
 
+/* STYLES FOR MAIN DIV. */
+
+#mainPage {
+	position: relative;
+	min-height: 350px;
+	-webkit-animation-name: animate_page;
+  	-webkit-animation-duration: 1s;
+  	animation-name: animate_page;
+  	animation-duration: 1s;
+}
+
+
+/* STYLES FOR SIDE MENU. */
+
+.sideMenu {
+	position: relative;
+	padding: 20px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	float: right;
+	height: 250px;
+
+	border: 2px solid #0e2c68;
+	border-radius: 10px;
+}
+
+/* STYLES FOR THE FOOTER */
+
 .footer {
 	position: absolute;
   	right: 0;
@@ -209,18 +238,16 @@ and (min-width : 1024px) {
 	position: absolute;
 	bottom: 40px;
 	right: 20px;
-	width: 200px;
+	width: 250px;
 }
 
 .followContainer a {
-	padding-left: 17px;
-}
-
-.followContainer:nth-child(2) {
-	padding-left: 30px;
+	padding-left: 8%;
+	padding-right: 8%;
 }
 
 .follow_us {
+	margin: auto;
 	text-align: center;
 	color: #0e2c68;
 }
@@ -235,10 +262,11 @@ and (min-width : 1024px) {
 	color: #0e2c68;
 	bottom: 0;
 	height: 20px;
+	width: 100%;
+	text-align: center;
 	font-family: Tahoma;
 	font-size: 15px;
 	font-weight: bold;
-	left: 35%;
 }
 
 @media only screen 
@@ -260,16 +288,25 @@ and (max-width : 660px) {
 
 	.followContainer {
 		margin: 0 auto;
+		left: 10px;
 		margin-top: 70px;
 		position: relative;
+	}
+
+	.footerContainer a {
+		padding-left: 5%;
+		padding-right: 5%
 	}
 
 	.rights_reserved {
 		left: 0;
 		margin: 0 auto;
-		font-size: 13px;
+		font-size: 12px;
 	}
 }
+
+
+
 
 @-webkit-keyframes animate_page {
   	from { bottom: -150px; opacity: 0 } 
@@ -281,7 +318,7 @@ and (max-width : 660px) {
   	to{ bottom: 0px; opacity: 1 }
 }
 
-/* STYLES FOR LOGIN PAGE */
+/* STYLES FOR LOGIN AND REGISTER PAGE */
 
 .formHolder {
 	display: none;
