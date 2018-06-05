@@ -11,18 +11,13 @@ Kinvey.init( {
 var activeUser = Kinvey.User.getActiveUser();
 console.log( activeUser );
 
-
-
 function    hasActiveUser() {
     if( activeUser !== null ) {
-
         document.getElementById( 'helloUser' ).style.display        = "inline-block";
         document.getElementById( 'userHeader' ).style.display       = "inline-block";
         document.getElementById( 'userHeader' ).innerHTML           = activeUser.data.username;
         document.getElementById( 'logout' ).style.display           = "inline-block";
 
-
-        
         document.getElementById( 'loginButton' ).style.display      = "none";
         document.getElementById( 'registerButton' ).style.display   = "none";
     }
@@ -39,15 +34,16 @@ function    hasActiveUser() {
 
 function    login() {
     var promise = Kinvey.User.login( $( '#loginUsername' ).val(), $( '#loginPassword' ).val() )
-    .then( function( user ) {
-        console.log( user );
-        document.getElementById( 'successfulLogin' ).style.display  = "block";
-        location.reload();
-    } )
-    .catch( function( error ) {
-        document.getElementById( 'failedLogin' ).style.display  = "block";
-        console.log( error );
-    } );
+        .then( function( user ) {
+            console.log( user );
+            document.getElementById( 'successfulLogin' ).style.display  = "block";
+            window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
+            window.location.reload();
+        } )
+        .catch( function( error ) {
+            document.getElementById( 'failedLogin' ).style.display  = "block";
+            console.log( error );
+        } );
 
     return false;
 }
@@ -57,15 +53,16 @@ function    register() {
         username: $( '#registerUsername' ).val(),
         password: $( '#registerPassword' ).val()
     } )
-    
-    .then( function( user ) {
-        console.log( user );
-        document.getElementById( 'successfulRegister' ).style.display  = "block";
-    } )
-    .catch( function( error ) {
-        document.getElementById( 'failedRegister' ).style.display  = "block";
-        console.log( error );
-    } );
+        .then( function( user ) {
+            console.log( user );
+            document.getElementById( 'successfulRegister' ).style.display  = "block";
+            window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
+            location.reload();
+        } )
+        .catch( function( error ) {
+            document.getElementById( 'failedRegister' ).style.display  = "block";
+            console.log( error );
+        } );
 
     return false;
 }
@@ -74,7 +71,10 @@ function    logout() {
     var promise = Kinvey.User.logout()
         .then( function() {
             console.log( 'Logged out.' );
-        } ).catch( function( error ) {
+            window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
+            window.location.reload();
+        } )
+        .catch( function( error ) {
             console.log( error );
         } );
 }
