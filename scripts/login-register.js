@@ -37,8 +37,8 @@ function    login() {
         .then( function( user ) {
             console.log( user );
             document.getElementById( 'successfulLogin' ).style.display  = "block";
-            window.location.href    = "/";
             location.reload();
+            window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
         } )
         .catch( function( error ) {
             document.getElementById( 'failedLogin' ).style.display  = "block";
@@ -56,8 +56,8 @@ function    register() {
         .then( function( user ) {
             console.log( user );
             document.getElementById( 'successfulRegister' ).style.display  = "block";
-            window.location.href    = "/";
             location.reload();
+            window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
         } )
         .catch( function( error ) {
             document.getElementById( 'failedRegister' ).style.display  = "block";
@@ -71,8 +71,8 @@ function    logout() {
     var promise = Kinvey.User.logout()
         .then( function() {
             console.log( 'Logged out.' );
-            window.location.href    = "/";
-            window.location.reload();
+            location.reload();
+            window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
         } )
         .catch( function( error ) {
             console.log( error );
