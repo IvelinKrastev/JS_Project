@@ -24,6 +24,7 @@ function    hasActiveUser() {
     else {
         document.getElementById( 'helloUser' ).style.display        = "none";
         document.getElementById( 'userHeader' ).style.display       = "none";
+        document.getElementById( 'userHeader' ).innerHTML           = "";
         document.getElementById( 'logout' ).style.display           = "none";
 
         document.getElementById( 'loginButton' ).style.display      = "inline-block";
