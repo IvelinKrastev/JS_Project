@@ -322,6 +322,14 @@ and (min-width : 1024px) {
 	text-align: center;
 }
 
+#youMustBeLoggedIn {
+	display: none;
+	margin: 0 auto;
+	vertical-align: center;
+	text-align: center;
+	color: #960000;
+}
+
 
 
 /* STYLES FOR THE FOOTER */

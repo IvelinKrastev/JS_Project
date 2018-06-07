@@ -1,37 +1,135 @@
 
 const appKey 			= 'kid_ryqsEmWxQ';
 const appSecret 		= 'a80bcf0cc4954e4aa299e3160baa962d';
-const kinveyServiceUrl 	= 'https://baas.kinvey.com/';
 
 Kinvey.init( {
     appKey:     appKey,
     appSecret:  appSecret
 } );
+////////////////////////////////////////////////////////////////////////////////
 
-var activeUser = Kinvey.User.getActiveUser();
-console.log( activeUser );
+var activeUser          = Kinvey.User.getActiveUser();
+
+////////////////////////////////////////////////////////////////////////////////
+
+function    showUserGreeting() {
+    var helloUser           = document.getElementById( 'helloUser' );
+    var userHeader          = document.getElementById( 'userHeader' );
+    var logout              = document.getElementById( 'logout' );
+
+    if( helloUser != null ) {
+        helloUser.style.display    = "inline-block";
+    }
+
+    if( userHeader != null ) {
+        userHeader.style.display   = "inline-block";
+        userHeader.innerHTML       = activeUser.data.username;
+    }
+
+    if ( logout != null ) {
+        logout.style.display       = "inline-block";
+    }
+}
+////////////////////////////////////////////////////////////////////////////////
+
+function    hideUserGreeting() {
+    var helloUser           = document.getElementById( 'helloUser' );
+    var userHeader          = document.getElementById( 'userHeader' );
+    var logout              = document.getElementById( 'logout' );
+
+    if( helloUser !== null )
+        helloUser.style.display    = "none";
+
+    if( userHeader != null ) {
+        userHeader.style.display   = "none"
+        userHeader.innerHTML       = "";
+    }
+
+    if ( logout != null ) {
+        logout.style.display       = "none";
+    }
+}
+////////////////////////////////////////////////////////////////////////////////
+
+function    showLoginReg() {
+    var loginButton         = document.getElementById( 'loginButton' );
+    var registerButton      = document.getElementById( 'registerButton' );
+
+    if( loginButton != null )
+        loginButton.style.display    = "inline-block";
+
+    if( registerButton != null )
+        registerButton.style.display   = "inline-block";
+
+}
+////////////////////////////////////////////////////////////////////////////////
+
+function    hideLogReg() {
+    var loginButton         = document.getElementById( 'loginButton' );
+    var registerButton      = document.getElementById( 'registerButton' );
+
+    if( loginButton != null )
+        loginButton.style.display       = "none";
+
+    if( registerButton != null )
+        registerButton.style.display    = "none";
+
+}
+////////////////////////////////////////////////////////////////////////////////
+
+function    showRecipes() {
+    var youMustBeLoggedIn   = document.getElementById( 'youMustBeLoggedIn' );
+    var recipeImage         = document.getElementById( 'recipeImage' );
+    var recipeHeader        = document.getElementById( 'recipeHeader' );
+    var recipeText          = document.getElementById( 'recipeText' );
+
+    if( youMustBeLoggedIn != null )
+        youMustBeLoggedIn.style.display = "none";
+
+    if( recipeImage != null )
+        recipeImage.style.display       = "block";
+
+    if( recipeHeader != null )
+        recipeHeader.style.display      = "block";
+
+    if( recipeText != null )
+        recipeText.style.display        = "block";
+}
+////////////////////////////////////////////////////////////////////////////////
+
+function    hideRecipes() {
+    var youMustBeLoggedIn   = document.getElementById( 'youMustBeLoggedIn' );
+    var recipeImage         = document.getElementById( 'recipeImage' );
+    var recipeHeader        = document.getElementById( 'recipeHeader' );
+    var recipeText          = document.getElementById( 'recipeText' );
+    
+    if( youMustBeLoggedIn != null )
+        youMustBeLoggedIn.style.display = "block";
+
+    if( recipeImage != null )
+        recipeImage.style.display       = "none";
+
+    if( recipeHeader != null )
+        recipeHeader.style.display      = "none";
+
+    if( recipeText != null )
+        recipeText.style.display        = "none";
+}
+////////////////////////////////////////////////////////////////////////////////
 
 function    hasActiveUser() {
     if( activeUser !== null ) {
-        document.getElementById( 'helloUser' ).style.display        = "inline-block";
-        document.getElementById( 'userHeader' ).style.display       = "inline-block";
-        document.getElementById( 'userHeader' ).innerHTML           = activeUser.data.username;
-        document.getElementById( 'logout' ).style.display           = "inline-block";
-
-        document.getElementById( 'loginButton' ).style.display      = "none";
-        document.getElementById( 'registerButton' ).style.display   = "none";
-    }
+        showUserGreeting();
+        hideLogReg();
+        showRecipes();
+    } 
     else {
-        document.getElementById( 'helloUser' ).style.display        = "none";
-        document.getElementById( 'userHeader' ).style.display       = "none";
-        document.getElementById( 'userHeader' ).innerHTML           = "";
-        document.getElementById( 'logout' ).style.display           = "none";
-
-        document.getElementById( 'loginButton' ).style.display      = "inline-block";
-        document.getElementById( 'registerButton' ).style.display   = "inline-block";
+        hideUserGreeting();
+        showLoginReg();
+        hideRecipes();
     }
-};
-
+}
+////////////////////////////////////////////////////////////////////////////////
 
 function    login() {
     var promise = Kinvey.User.login( $( '#loginUsername' ).val(), $( '#loginPassword' ).val() )
@@ -39,15 +137,17 @@ function    login() {
             console.log( user );
             document.getElementById( 'successfulLogin' ).style.display  = "block";
             location.reload();
-            window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
+
+            replaceLocation();
         } )
         .catch( function( error ) {
             document.getElementById( 'failedLogin' ).style.display  = "block";
             console.log( error );
         } );
 
-    return false;
+    return  false;
 }
+////////////////////////////////////////////////////////////////////////////////
 
 function    register() {
     var promise = Kinvey.User.signup( {
@@ -58,24 +158,32 @@ function    register() {
             console.log( user );
             document.getElementById( 'successfulRegister' ).style.display  = "block";
             location.reload();
-            window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
+
+            replaceLocation();
         } )
         .catch( function( error ) {
             document.getElementById( 'failedRegister' ).style.display  = "block";
             console.log( error );
         } );
 
-    return false;
+    return  false;
 }
+////////////////////////////////////////////////////////////////////////////////
 
 function    logout() {
     var promise = Kinvey.User.logout()
         .then( function() {
             console.log( 'Logged out.' );
             location.reload();
-            window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
+
+            replaceLocation();
         } )
         .catch( function( error ) {
             console.log( error );
         } );
+}
+////////////////////////////////////////////////////////////////////////////////
+
+function    replaceLocation() {
+    window.location.replace( "https://ivelinkrastev.github.io/jsproject/" );
 }
